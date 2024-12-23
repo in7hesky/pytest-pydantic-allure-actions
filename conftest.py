@@ -1,18 +1,11 @@
 import os
 import requests
 import pytest
-from dotenv import load_dotenv
-
-load_dotenv()
-
-HOST = "https://release-gs.qa-playground.com/api/v1" \
-        if os.getenv("STAGE") == "prod" \
-        else "https://dev-gs.qa-playground.com/api/v1"
-
+from utils.url_resolver import UrlResolver as Url
 
 @pytest.fixture(scope="session", autouse=True)
 def setup_env():
-    response = requests.post(
-        url=f"{HOST}/setup",
-        headers={"Authorization": f"Bearer {os.environ["API_KEY"]}"}
+    requests.post(
+        url=f"{Url.resolve()}/setup",
+        headers={"Authorization": f"Bearer {os.environ["API_TOKEN"]}"}
     )
