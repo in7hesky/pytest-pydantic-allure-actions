@@ -3,9 +3,8 @@ import requests
 from requests import Response
 
 from data.headers import Headers
-from data.models.users.user_model import UserModel
-from data.payloads.users_payloads import UsersPayloads
-from services.users.data.endpoints import Endpoints
+from models.response.created_user_model import CreatedUserModel
+from services.users.endpoints import Endpoints
 
 
 class UsersService:
@@ -14,14 +13,14 @@ class UsersService:
         self.endpoints = Endpoints()
         self.headers = Headers()
 
-    @allure.step("Create user with random user payload")
-    def create_user(self) -> Response:
+    @allure.step("Create user with payload")
+    def create_user_with_payload(self, payload) -> Response:
         response =  requests.post(
             url=self.endpoints.create_user,
             headers=self.headers.basic_auth,
-            json=UsersPayloads.create_user()
+            json=payload
         )
 
-        UserModel.model_validate(response.json())
+        CreatedUserModel.model_validate(response.json())
 
         return response

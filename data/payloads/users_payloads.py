@@ -6,7 +6,7 @@ faker = Faker()
 class UsersPayloads:
 
     @staticmethod
-    def create_user():
+    def get_random_valid_user():
         return {
             "email": faker.email(),
             "password": faker.password(),
