@@ -1,23 +1,25 @@
+import allure
 import requests
 from requests import Response
-from services.users.data.payloads import Payloads
+
+from data.headers import Headers
+from data.models.users.user_model import UserModel
+from data.payloads.users_payloads import UsersPayloads
 from services.users.data.endpoints import Endpoints
-from config.headers import Headers
-from models.users.user_model import UserModel
 
 
 class UsersService:
 
     def __init__(self):
-        self.payloads = Payloads()
         self.endpoints = Endpoints()
         self.headers = Headers()
 
+    @allure.step("Create user with random user payload")
     def create_user(self) -> Response:
         response =  requests.post(
             url=self.endpoints.create_user,
             headers=self.headers.basic_auth,
-            json=self.payloads.create_user
+            json=UsersPayloads.create_user()
         )
 
         UserModel.model_validate(response.json())

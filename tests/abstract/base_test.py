@@ -1,5 +1,5 @@
-from services.users.users_service import UsersService
 import pytest
+from services.users.users_service import UsersService
 
 
 class BaseTest:
