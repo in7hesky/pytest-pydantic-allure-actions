@@ -4,9 +4,15 @@ from config.urls import Urls
 
 class UrlResolver:
 
+    __HOST = None
+
     @classmethod
     def resolve(cls) -> str:
-        return Urls.URL_PROD if cls.is_prod() else Urls.URL_DEV
+        if cls.__HOST is not None:
+            return cls.__HOST
+
+        cls.__HOST = Urls.URL_PROD if cls.is_prod() else Urls.URL_DEV
+        return cls.__HOST
 
     @staticmethod
     def is_prod() -> str | None:
