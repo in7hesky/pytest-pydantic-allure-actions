@@ -11,7 +11,8 @@ class UrlResolver:
         if cls.__HOST is not None:
             return cls.__HOST
 
-        cls.__HOST = Urls.URL_PROD if cls.is_prod() else Urls.URL_DEV
+        cls.__HOST = Urls.URL_PROD.value if cls.is_prod() \
+            else Urls.URL_DEV.value
         return cls.__HOST
 
     @staticmethod
