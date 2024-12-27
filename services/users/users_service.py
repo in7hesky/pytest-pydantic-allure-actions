@@ -3,9 +3,8 @@ import requests
 from requests import Response
 
 from data.headers import Headers
-from models.created_user_model import CreatedUserModel
 from services.users.endpoints import Endpoints
-from utils.decorators import attach_response, validate_response
+from utils.decorators import attach_response
 
 
 class UsersService:
@@ -14,7 +13,6 @@ class UsersService:
         self.endpoints = Endpoints()
         self.headers = Headers()
 
-    @validate_response(CreatedUserModel)
     @attach_response
     @allure.step("Create user with payload")
     def create_user_with_payload(self, payload: dict) -> Response:

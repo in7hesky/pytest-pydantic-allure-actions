@@ -1,5 +1,5 @@
-from tests.abstract.base_test import BaseTest
-from utils.assertions import assert_fields_are_equal
+from tests.base_test import BaseTest
+from models.created_user_model import CreatedUserModel
 
 
 class TestUsersService(BaseTest):
@@ -9,5 +9,6 @@ class TestUsersService(BaseTest):
             .create_user_with_payload(valid_user_payload)
 
         assert response.status_code == 200
-        assert_fields_are_equal(response.json(), valid_user_payload, \
-                                "email", "name", "nickname")
+        self.check.target_fields_are_equal(
+            response.json(), valid_user_payload, "email", "name", "nickname")
+        self.check.object_is_valid(response.json(), CreatedUserModel)
