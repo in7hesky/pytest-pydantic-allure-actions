@@ -1,7 +1,7 @@
 from utils.url_resolver import UrlResolver as Url
 
 
-class Endpoints:
+class UsersEndpoints():
 
     __HOST = Url.resolve()
     create_user = f"{__HOST}/users"

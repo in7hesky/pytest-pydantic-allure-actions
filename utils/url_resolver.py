@@ -1,5 +1,5 @@
 import os
-from config.urls import Urls
+from data.urls import Urls
 
 
 class UrlResolver:

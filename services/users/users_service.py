@@ -2,16 +2,16 @@ import allure
 import requests
 from requests import Response
 
-from data.headers import Headers
-from services.users.endpoints import Endpoints
+from services.base_service import BaseService
+from services.users.users_endpoints import UsersEndpoints
 from utils.decorators import attach_response
 
 
-class UsersService:
+class UsersService(BaseService):
 
     def __init__(self):
-        self.endpoints = Endpoints()
-        self.headers = Headers()
+        super().__init__()
+        self.endpoints = UsersEndpoints()
 
     @attach_response
     @allure.step("Create user with payload")
