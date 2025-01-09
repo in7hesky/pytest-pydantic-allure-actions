@@ -1,7 +1,10 @@
+import allure
+
 from tests.base_test import BaseTest
 from models.created_user_model import CreatedUserModel
 
 
+@allure.feature("Users Service")
 class TestUsersService(BaseTest):
 
     def test_create_user(self, valid_user_payload):

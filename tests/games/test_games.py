@@ -1,6 +1,9 @@
+import allure
+
 from tests.base_test import BaseTest
 
 
+@allure.feature("Games Service")
 class TestGamesService(BaseTest):
 
     def test_get_users_list(self):
