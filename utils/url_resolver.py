@@ -16,5 +16,5 @@ class UrlResolver:
         return cls.__HOST
 
     @staticmethod
-    def is_prod() -> str | None:
+    def is_prod() -> bool:
         return os.getenv("STAGE") == "prod"

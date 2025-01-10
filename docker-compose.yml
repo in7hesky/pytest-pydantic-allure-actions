@@ -5,5 +5,5 @@ services:
       - ./:/framework
     command: /bin/bash -c "STAGE=$$STAGE pytest -sv"
     environment:
-      STAGE: prod
+      STAGE: ${STAGE}
       API_TOKEN: ${API_TOKEN}
