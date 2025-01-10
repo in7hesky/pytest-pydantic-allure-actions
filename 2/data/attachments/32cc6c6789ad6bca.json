@@ -1,0 +1,4 @@
+{
+    "code": 401,
+    "message": "security requirements failed: authentication failed, please set correct \"Bearer\" header"
+}
