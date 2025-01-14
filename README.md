@@ -8,6 +8,7 @@ System Under Test (SUT): - [Swagger](https://petstore.swagger.io/?url=https://re
 List of main tools and libraries used:
 
 - pytest
+- requests
 - pydantic
 - faker
 - allure-pytest
