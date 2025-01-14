@@ -1,4 +1,4 @@
-# pytest-pydantic-allure-actions
+# pytest-requests-pydantic-allure
 ### Project Description ###
 
 A pytest-pydantic-allure framework wrapped in a docker container with github-actions integration.
